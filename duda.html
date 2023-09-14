@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Lista de Compras - Supermercado</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script>
+        function calcularTotal(compras) {
+            var valor1 = parseFloat(document.compras.VALOR1.value) || 0;
+            var valor2 = parseFloat(document.compras.VALOR2.value) || 0;
+            var valor3 = parseFloat(document.compras.VALOR3.value) || 0;
+            var valor4 = parseFloat(document.compras.VALOR4.value) || 0;
+            var Descontos = parseFloat(document.compras.Descontos.value) || 0;
+
+            var Total = valor1 + valor2 + valor3 + valor4;
+            var Total = Total - Descontos;
+
+            
+            document.compras.Total.value = Total.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <form name="compras">
+        <table border="5">
+            <tr bgcolor="PINK">
+                <td width="80" align="center">Compras</td>
+                <td width="40">Descontos</td>
+                <td align="center">
+                    <input type="text" name="Descontos" value="1">
+                </td>
+                <td width="120" align="center">Total Descontos:</td>
+                <td width="40" align="center">
+                    <input type="text" name="" value="" disabled>
+                </td>
+            </tr>
+            <tr bgcolor="PINK">
+                <td width="80">Código</td>
+                <td width="40" align="center" colspan="3">Descrição</td>
+                <td align="center">Preço</td>
+            </tr>
+            <tr bgcolor="PINK">
+                <td width="80" align="center">
+                    <input type="text" name="COD1" value="101">
+                </td>
+                <td width="40" align="center" colspan="3">
+                    <input type="text" name="DESC1" value="Arroz (5kg)">
+                </td>
+                <td align="center">
+                    <input type="text" name="VALOR1" value="15.99">
+                </td>
+            </tr>
+            <tr bgcolor="PINK">
+                <td width="80" align="center">
+                    <input type="text" name="COD2" value="102">
+                </td>
+                <td width="40" align="center" colspan="3">
+                    <input type="text" name="DESC2" value="Feijão (1kg)">
+                </td>
+                <td align="center">
+                    <input type="text" name="VALOR2" value="4.50">
+                </td>
+            </tr>
+            <tr bgcolor="PINK">
+                <td width="80" align="center">
+                    <input type="text" name="COD3" value="103">
+                </td>
+                <td width="40" align="center" colspan="3">
+                    <input type="text" name="DESC3" value="Leite (1L)">
+                </td>
+                <td align="center">
+                    <input type="text" name="VALOR3" value="3.99">
+                </td>
+            </tr>
+            <tr bgcolor="PINK">
+                <td width="80" align="center">
+                    <input type="text" name="COD4" value="104">
+                </td>
+                <td width="40" align="center" colspan="3">
+                    <input type="text" name="DESC4" value="Pão de Forma">
+                </td>
+                <td align="center">
+                    <input type="text" name="VALOR4" value="2.79">
+                </td>
+            </tr>
+            <tr>
+                <td width="120" align="center">Total</td>
+                <td width="40" align="center">
+                    <input type="text" name="Total" value="" disabled>
+                </td>
+            </tr>
+            <tr bgcolor="PINK">
+                <td width="80" align="center" colspan="5">
+                    <input type="button" name="botao" value="Calcular" onClick="calcularTotal(compras)">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
